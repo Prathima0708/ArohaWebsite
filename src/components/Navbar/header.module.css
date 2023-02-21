@@ -1,0 +1,11 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.brandTextStyle{
+    font-weight: bold;
+    /* color: white; */
+}
+.navBar{
+    position: fixed;
+}
