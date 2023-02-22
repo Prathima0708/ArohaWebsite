@@ -48,7 +48,7 @@ function Header() {
           </h1>
         </Row>
       </Container>
-      <Container>
+      {/* <Container>
         <Row>
           <img
             src={myImage}
