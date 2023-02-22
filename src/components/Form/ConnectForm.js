@@ -1,8 +1,17 @@
 import React from "react";
-import { Badge, Button, Container, Form, Row } from "react-bootstrap";
+import {
+  Alert,
+  Badge,
+  Button,
+  Col,
+  Container,
+  Form,
+  Row,
+} from "react-bootstrap";
 import classes from "./Form.module.css";
 import { useState } from "react";
 import { ThankYou } from "../ThankYou/ThankYou";
+import axios from "axios";
 
 export const ConnectForm = () => {
   const [enteredName, setEnteredName] = useState("");
@@ -12,6 +21,7 @@ export const ConnectForm = () => {
 
   const [showThankYoupage, setShowThankYouPage] = useState(false);
   const [showForm, setShowForm] = useState(true);
+  const [validated, setValidated] = useState(false);
 
   function nameChangeHandler(e) {
     setEnteredName(e.target.value);
@@ -26,7 +36,7 @@ export const ConnectForm = () => {
     setEnteredDescription(e.target.value);
   }
 
-  const submiFormHandler = (event) => {
+  const submitFormHandler = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -39,24 +49,30 @@ export const ConnectForm = () => {
       enteredDescription,
       enteredEmail,
     };
-    console.log(formData);
-    setShowThankYouPage(true);
-    setShowForm(false);
-    // if (
-    //   enteredNum !== "" &&
-    //   enteredName !== "" &&
-    //   enteredEmail !== "" &&
-    //   enteredDescription != null
-    // ) {
-    //   window.location.reload();
-    // }
 
-    // axios
-    //   .post("http://server.thebluefaith.com/saveData.php", formData)
-    //   .then((result) => {
-    //     if (result.status === 200) {
-    //     }
-    //   });
+    axios
+      .post(
+        "http://server.thebluefaith.com/savecontactusTableData.php",
+        formData
+      )
+      .then((result) => {
+        if (result.status === 200) {
+          if (
+            enteredNum != null &&
+            enteredName != null &&
+            enteredEmail != null &&
+            enteredDescription != null
+          ) {
+            setShowThankYouPage(true);
+            setShowForm(false);
+          }
+
+          //  else {
+          //   return;
+          // }
+        }
+      });
+    setValidated(true);
   };
 
   return (
@@ -73,8 +89,9 @@ export const ConnectForm = () => {
           <Container>
             <Form
               noValidate
+              validated={validated}
               className={classes.Form}
-              onSubmit={submiFormHandler}
+              onSubmit={submitFormHandler}
             >
               <Row className="mb-4">
                 <Form.Group controlId="validationCustom01">
@@ -86,7 +103,10 @@ export const ConnectForm = () => {
                     value={enteredName}
                     onChange={nameChangeHandler}
                   />
-                  <Form.Control.Feedback type="invalid">
+                  <Form.Control.Feedback
+                    type="invalid"
+                    className={classes.label}
+                  >
                     Please provide name.
                   </Form.Control.Feedback>
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -148,11 +168,74 @@ export const ConnectForm = () => {
                 Submit
               </Button>
             </Form>
+
+            {/* <Form noValidate validated={validated} onSubmit={submitFormHandler}>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="4" controlId="validationCustom01">
+                  <Form.Label>First name</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Name"
+                    value={enteredName}
+                    onChange={nameChangeHandler}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide name
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Row>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="6" controlId="validationCustom03">
+                  <Form.Label>Phone number</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Phone number"
+                    maxLength={10}
+                    required
+                    value={enteredNum}
+                    onChange={phoneNumChangeHandler}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please enter phone number.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="validationCustom04">
+                  <Form.Label>Email Address</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="E-mail"
+                    maxLength={10}
+                    required
+                    value={enteredEmail}
+                    onChange={emailChangeHandler}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide E-mail.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="validationCustom05">
+                  <Form.Label>Description</Form.Label>
+                  <Form.Control
+                    type="text"
+                    as="textarea"
+                    rows={3}
+                    placeholder="Enter description"
+                    value={enteredDescription}
+                    onChange={descpChangeHandler}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide description.
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Row>
+
+              <Button type="submit">Submit form</Button>
+            </Form> */}
+            {showThankYoupage && <Alert variant="success">Thank you !</Alert>}
           </Container>
         </Container>
       )}
-
-      {showThankYoupage && <ThankYou />}
     </>
   );
 };
