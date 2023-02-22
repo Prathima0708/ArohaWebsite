@@ -1,0 +1,11 @@
+.containerImage{
+    width: 50%;
+    height: 95%;
+    background-color: white;
+}
+.textColor{
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-decoration: none;
+}
