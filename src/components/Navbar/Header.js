@@ -48,7 +48,7 @@ function Header() {
           </h1>
         </Row>
       </Container>
-      <Container>
+      {/* <Container>
         <Row>
           <img
             src={myImage}
@@ -56,7 +56,7 @@ function Header() {
             style={{ position: "fixed", top: "40%" }}
           />
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 }

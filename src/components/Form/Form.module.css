@@ -41,6 +41,9 @@ width: fit-content;
  margin-top: 5%;
  background-color: #F39C12;
   }
+  .feedback{
+margin-right: 90%;
+  }
 
 @media only screen and (max-width: 600px) {
     .exportBtnStyle{
