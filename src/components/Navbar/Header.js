@@ -3,20 +3,16 @@ import { Navbar, Container, Nav, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import classes from "../Navbar/header.module.css";
-import { ConnectForm, Form } from "../Form/ConnectForm";
 
+import myImage from "../../../src/assets/connectus.jpg";
+import logo from "../../assets/ag.png";
 function Header() {
   return (
     <>
       <Navbar expand="lg" className="ml-5">
         <Container>
           <Navbar.Brand href="/">
-            <img
-              src="https://arohagroup.com/wp-content/uploads/2022/07/arohagrouplogo-01.svg"
-              width="100"
-              height="100"
-              alt=" logo"
-            />
+            <img src={logo} width="100" height="50" alt=" logo" />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -47,9 +43,18 @@ function Header() {
       <Container>
         <Row className={classes.heading}>
           <h1>
-            360 <sup>o</sup> Marketing Solution by {"  "}
-            <span style={{ color: "#E67E22" }}>Aroha Group</span>
+            360<sup>o</sup> Digital Marketing Solution by
+            <span style={{ color: "#E67E22" }}> Aroha Group</span>
           </h1>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <img
+            src={myImage}
+            alt="img"
+            style={{ position: "fixed", top: "40%" }}
+          />
         </Row>
       </Container>
     </>

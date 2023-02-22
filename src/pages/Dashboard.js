@@ -12,7 +12,7 @@ function Dashboard() {
         <OurServices />
         <div className="bg-dark p-5 mt-5">
           <Footer />
-        </div> 
+        </div>
       </div>
     </>
   );
