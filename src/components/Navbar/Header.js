@@ -40,7 +40,7 @@ function Header() {
         </Container>
       </Navbar>
 
-      <Container>
+      {/* <Container>
         <Row className={classes.heading}>
           <h1>
             360<sup>o</sup> Digital Marketing Solution by
@@ -56,7 +56,7 @@ function Header() {
             style={{ position: "fixed", top: "40%" }}
           />
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 }
