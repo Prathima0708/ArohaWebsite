@@ -13,23 +13,32 @@ import classes from "./Form.module.css";
 import { useState } from "react";
 import { ThankYou } from "../ThankYou/ThankYou";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const ConnectForm = () => {
-  const [enteredName, setEnteredName] = useState("");
+  const navigate = useNavigate();
+  const [enteredFirstName, setEnteredFirstName] = useState("");
+  const [enteredLastName, setEnteredLastName] = useState("");
   const [enteredNum, setEnteredNum] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
+  const [enteredLocation, setEnteredLocation] = useState("");
+  const [enteredPinCode, setEnteredPinCode] = useState("");
+  const [enteredCompanyName, setEnteredCompanyName] = useState("");
 
   const [showThankYoupage, setShowThankYouPage] = useState(false);
-  const [showForm, setShowForm] = useState(true);
+
   const [validated, setValidated] = useState(false);
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
 
-  function nameChangeHandler(e) {
-    setEnteredName(e.target.value);
+  function firstNameChangeHandler(e) {
+    setEnteredFirstName(e.target.value);
+  }
+  function lastNameChangeHandler(e) {
+    setEnteredLastName(e.target.value);
   }
   function emailChangeHandler(e) {
     setEnteredEmail(e.target.value);
@@ -40,47 +49,15 @@ export const ConnectForm = () => {
   function descpChangeHandler(e) {
     setEnteredDescription(e.target.value);
   }
-
-  // const submitFormHandler = (event) => {
-  //   event.preventDefault();
-  //   const form = event.currentTarget;
-  //   if (form.checkValidity() === false) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   }
-  //   const formData = {
-  //     enteredName,
-  //     enteredNum,
-  //     enteredDescription,
-  //     enteredEmail,
-  //   };
-
-  //   axios
-  //     .post(
-  //       "http://server.thebluefaith.com/savecontactusTableData.php",
-  //       formData
-  //     )
-  //     .then((result) => {
-  //       console.log(result.data);
-  //       // if (result.status === 200) {
-  //       if (
-  //         enteredNum !== "" &&
-  //         enteredName !== "" &&
-  //         enteredEmail !== "" &&
-  //         enteredDescription !== ""
-  //       ) {
-  //         console.log("form submitted");
-  //         setShowThankYouPage(true);
-  //         setShowForm(false);
-  //       }
-
-  //       //  else {
-  //       //   return;
-  //       // }
-  //       //}
-  //     });
-  //   setValidated(true);
-  // };
+  function locationChangeHandler(e) {
+    setEnteredLocation(e.target.value);
+  }
+  function pinCodeChangeHandler(e) {
+    setEnteredPinCode(e.target.value);
+  }
+  function companyNameChangeHandler(e) {
+    setEnteredCompanyName(e.target.value);
+  }
   const submitFormHandler = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -89,16 +66,21 @@ export const ConnectForm = () => {
       event.stopPropagation();
     }
     const formData = {
-      enteredName,
+      enteredFirstName,
+      enteredLastName,
       enteredNum,
-      enteredDescription,
       enteredEmail,
+      enteredLocation,
+      enteredPinCode,
+      enteredCompanyName,
+      enteredDescription,
     };
     if (
-      enteredName === "" ||
+      enteredFirstName === "" ||
       enteredNum === "" ||
-      enteredDescription === "" ||
-      enteredEmail === ""
+      enteredEmail === "" ||
+      enteredLocation === "" ||
+      enteredPinCode === ""
     ) {
       setValidated(false);
     } else {
@@ -112,12 +94,18 @@ export const ConnectForm = () => {
           if (response.status === 200) {
             console.log("form submitted");
             setShowThankYouPage(true);
-            setShow(true);
-            setEnteredName("");
+
+            setEnteredFirstName("");
+            setEnteredLastName("");
             setEnteredEmail("");
             setEnteredNum("");
+            setEnteredLocation("");
+            setEnteredPinCode("");
+            setEnteredCompanyName("");
             setEnteredDescription("");
             setValidated(false);
+
+            navigate("/thankyou");
           }
         })
         .catch((error) => {
@@ -145,41 +133,32 @@ export const ConnectForm = () => {
             onSubmit={submitFormHandler}
           >
             <Row className="mb-4">
-              <Form.Group controlId="validationCustom01">
-                <Form.Label className={classes.label}>Name</Form.Label>
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label className={classes.label}>First Name</Form.Label>
                 <Form.Control
                   required
                   type="text"
-                  placeholder="Name"
-                  value={enteredName}
-                  onChange={nameChangeHandler}
+                  placeholder="First name"
+                  value={enteredFirstName}
+                  onChange={firstNameChangeHandler}
                 />
                 <Form.Control.Feedback type="invalid">
                   Please provide name.
                 </Form.Control.Feedback>
               </Form.Group>
-            </Row>
-            <Row className="mb-4">
-              <Form.Group controlId="validationCustom04">
-                <Form.Label className={classes.label}>Email address</Form.Label>
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label className={classes.label}>Last Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="E-mail"
-                  maxLength={10}
-                  required
-                  value={enteredEmail}
-                  onChange={emailChangeHandler}
+                  placeholder="Last name"
+                  value={enteredLastName}
+                  onChange={lastNameChangeHandler}
                 />
-                <Form.Control.Feedback
-                  type="invalid"
-                  className={classes.feedback}
-                >
-                  Please enter email address.
-                </Form.Control.Feedback>
               </Form.Group>
             </Row>
+
             <Row className="mb-4">
-              <Form.Group controlId="validationCustom04">
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
                 <Form.Label className={classes.label}>Phone Number</Form.Label>
                 <Form.Control
                   type="text"
@@ -193,17 +172,76 @@ export const ConnectForm = () => {
                   Please enter number.
                 </Form.Control.Feedback>
               </Form.Group>
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label className={classes.label}>
+                  E-mail Address
+                </Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="E-mail"
+                  required
+                  value={enteredEmail}
+                  onChange={emailChangeHandler}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter e-mail address.
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+            <Row className="mb-4">
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label className={classes.label}>Location</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Location"
+                  value={enteredLocation}
+                  onChange={locationChangeHandler}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide location.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label className={classes.label}>Pin Code</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Pin Code"
+                  maxLength={6}
+                  value={enteredPinCode}
+                  onChange={pinCodeChangeHandler}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter pincode.
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label className={classes.label}>Company Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Company name"
+                  value={enteredCompanyName}
+                  onChange={companyNameChangeHandler}
+                />
+              </Form.Group>
             </Row>
             <Row className="mb-3">
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label className={classes.label}>Description</Form.Label>
+                <Form.Label className={classes.label}>Comment</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
-                  placeholder="Enter description"
+                  placeholder="Type your message here..."
                   value={enteredDescription}
                   onChange={descpChangeHandler}
                 />

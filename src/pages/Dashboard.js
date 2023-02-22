@@ -15,7 +15,7 @@ function Dashboard() {
           <Row>
             <Col>
               <Col>
-                <h1>
+                <h1 className={classes.heading}>
                   360<sup>o</sup> Digital Marketing Solution by
                   <span style={{ color: "#E67E22" }}> Aroha Group</span>
                 </h1>

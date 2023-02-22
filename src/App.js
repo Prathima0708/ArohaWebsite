@@ -3,6 +3,7 @@ import "./App.css";
 import Dashboard from "./pages/Dashboard";
 import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
+import { ThankYou } from "./components/ThankYou/ThankYou";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/thankyou" element={<ThankYou />} />
       </Routes>
     </div>
   );
