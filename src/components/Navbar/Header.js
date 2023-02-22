@@ -9,7 +9,7 @@ import logo from "../../assets/ag.png";
 function Header() {
   return (
     <>
-      <Navbar expand="lg" className="ml-5">
+      <Navbar expand="lg" className={classes.nav}>
         <Container>
           <Navbar.Brand href="/">
             <img src={logo} width="100" height="50" alt=" logo" />
