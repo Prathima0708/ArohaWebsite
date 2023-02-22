@@ -5,6 +5,7 @@ import Header from "../components/Navbar/Header";
 import OurServices from "../components/OurServices/OurServices";
 import myImage from '../../src/assets/connectus.jpg'
 import classes from '../pages/dashboard.module.css'
+import About from "../components/About/About";
 function Dashboard() {
   return (
     <>
@@ -23,17 +24,17 @@ function Dashboard() {
                 <ConnectForm />
               </Col>
             </Col>
-            <Col className={classes.imageStyle}>
+            <Col xs={5} className={classes.imageStyle}>
               <img
                 src={myImage}
-                className='img-fluid'
+                className={classes.imageResStyle}
                 alt="img"
                 width='800'
               />
             </Col>
           </Row>
         </Container>
-        
+        <About />
         <OurServices />
         <div className="bg-dark p-5 mt-5">
           <Footer />

@@ -49,4 +49,15 @@ margin-right: 90%;
     .exportBtnStyle{
         margin-bottom: 5%;
     }
+    .Form{
+      width: inherit;
+    }
   }
+
+  @media only screen and (max-width: 768px) {
+    
+    .Form{
+      width: inherit;
+    }
+  }
+
