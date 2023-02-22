@@ -1,3 +1,4 @@
+import { ConnectForm } from "../components/Form/ConnectForm";
 import Header from "../components/Navbar/Header";
 
 function Dashboard() {
@@ -5,6 +6,7 @@ function Dashboard() {
     <>
       <div>
         <Header />
+        <ConnectForm />
       </div>
     </>
   );
