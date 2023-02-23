@@ -3,8 +3,9 @@ import Footer from "../components/Footer/Footer";
 import { ConnectForm } from "../components/Form/ConnectForm";
 import Header from "../components/Navbar/Header";
 import OurServices from "../components/OurServices/OurServices";
-import myImage from '../../src/assets/connectus.jpg'
-import classes from '../pages/dashboard.module.css'
+import myImage from "../../src/assets/connectus.jpg";
+import connectUsImage from "../../src/assets/Asset 2illus.web.png";
+import classes from "../pages/dashboard.module.css";
 import About from "../components/About/About";
 function Dashboard() {
   return (
@@ -26,10 +27,10 @@ function Dashboard() {
             </Col>
             <Col xs={5} className={classes.imageStyle}>
               <img
-                src={myImage}
+                src={connectUsImage}
                 className={classes.imageResStyle}
                 alt="img"
-                width='800'
+              
               />
             </Col>
           </Row>
