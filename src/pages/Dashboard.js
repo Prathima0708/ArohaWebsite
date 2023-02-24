@@ -3,7 +3,7 @@ import Footer from "../components/Footer/Footer";
 import { ConnectForm } from "../components/Form/ConnectForm";
 import Header from "../components/Navbar/Header";
 import OurServices from "../components/OurServices/OurServices";
-import myImage from "../../src/assets/connectus.jpg";
+
 import connectUsImage from "../../src/assets/Asset 5illus.web2 (1).png";
 import classes from "../pages/dashboard.module.css";
 import About from "../components/About/About";
