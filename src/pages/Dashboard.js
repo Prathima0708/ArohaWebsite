@@ -13,11 +13,13 @@ function Dashboard() {
       <div>
         <Header />
         <Container >
-          <Row className={classes.row}>
+          <Row className={classes.rowStyle}>
+            <Col>
             <h1 className={classes.heading}>
               360<sup>o</sup> Digital Marketing Solution <br /> by
               <span style={{ color: "#E67E22" }}> Aroha Group</span>
             </h1>
+            </Col>
           </Row>
           <Row>
             <Col>
