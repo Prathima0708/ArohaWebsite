@@ -86,7 +86,7 @@ export const ConnectForm = () => {
     } else {
       axios
         .post(
-          "https://server.thebluefaith.com/savecontactusTableData.php",
+          "http://server.thebluefaith.com/savecontactusTableData.php",
           formData
         )
         .then((response) => {
