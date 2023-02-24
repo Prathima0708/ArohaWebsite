@@ -34,10 +34,10 @@ function Dashboard() {
             </Col>
           </Row>
         </Container>
-        <About />
+        {/* <About /> */}
         <OurServices />
-        <div className="bg-dark p-5 mt-5">
-          <Footer />
+        <div className={classes.Footer}>
+          <Footer/>
         </div>
       </div>
     </>

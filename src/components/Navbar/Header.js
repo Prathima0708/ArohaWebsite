@@ -22,8 +22,7 @@ function Header() {
                 Home
               </Nav.Link>
               <Nav.Link
-                href="/services"
-                target="_blank"
+                href="#services"
                 className={classes.linkText}
               >
                 Services
