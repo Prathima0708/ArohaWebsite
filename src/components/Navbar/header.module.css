@@ -25,7 +25,43 @@
 .linkText:hover{
     color: #F39C12;
 }
-
 .nav{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: fixed;
+   top: 5%;
+   width: 80%;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   border-radius: 13px;
+   padding: 13px;
+
+  
 }
+
+.image{
+    width: 50%;
+   
+}
+
+  .navbar{
+    height: 50px;
+    background-color: #003580;
+    display: flex;
+    justify-content: center;
+  }
+  
+
+ 
+  .outer {
+    background-color: darkblue;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .inner {
+    height: 7em;
+   
+  }
+
+  
