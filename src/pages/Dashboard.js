@@ -18,7 +18,10 @@ function Dashboard() {
               <h1 className={classes.heading}>
                 360<sup>o</sup> Digital Marketing Solution
                 <br /> by
-                <span style={{ color: "#E67E22" }}> Aroha Group</span>
+                <span style={{ color: "#E67E22", lineHeight: "2em" }}>
+                  {" "}
+                  Aroha Group
+                </span>
               </h1>
             </Col>
           </Row>
