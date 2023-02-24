@@ -12,13 +12,14 @@ function Dashboard() {
     <>
       <div>
         <Header />
-        <Container >
+        <Container>
           <Row className={classes.rowStyle}>
             <Col className="d-flex mt-5">
-            <h1 className={classes.heading}>
-              360<sup>o</sup> Digital Marketing Solution by
-              <span style={{ color: "#E67E22" }}> Aroha Group</span>
-            </h1>
+              <h1 className={classes.heading}>
+                360<sup>o</sup> Digital Marketing Solution
+                <br /> by
+                <span style={{ color: "#E67E22" }}> Aroha Group</span>
+              </h1>
             </Col>
           </Row>
           <Row>
@@ -38,7 +39,7 @@ function Dashboard() {
         {/* <About /> */}
         <OurServices />
         <div className={classes.Footer}>
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </>

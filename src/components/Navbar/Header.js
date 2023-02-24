@@ -48,12 +48,16 @@ function Header() {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link href="/" className={classes.linkText}>
+                  <Nav.Link
+                    href="https://arohagroup.com/#home"
+                    target="_blank"
+                    className={classes.linkText}
+                  >
                     Home
                   </Nav.Link>
                   <Nav.Link
-                    href="/services"
-                    target="_blank"
+                    href="#services"
+                    // target="_blank"
                     className={classes.linkText}
                   >
                     Services

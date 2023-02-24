@@ -71,7 +71,7 @@ export const ConnectForm = () => {
       enteredNum,
       enteredEmail,
       enteredLocation,
-      enteredPinCode,
+
       enteredCompanyName,
       enteredDescription,
     };
@@ -79,8 +79,7 @@ export const ConnectForm = () => {
       enteredFirstName === "" ||
       enteredNum === "" ||
       enteredEmail === "" ||
-      enteredLocation === "" ||
-      enteredPinCode === ""
+      enteredLocation === ""
     ) {
       setValidated(false);
     } else {
