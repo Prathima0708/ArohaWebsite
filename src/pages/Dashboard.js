@@ -14,9 +14,9 @@ function Dashboard() {
         <Header />
         <Container >
           <Row className={classes.rowStyle}>
-            <Col>
+            <Col className="d-flex mt-5">
             <h1 className={classes.heading}>
-              360<sup>o</sup> Digital Marketing Solution <br /> by
+              360<sup>o</sup> Digital Marketing Solution by
               <span style={{ color: "#E67E22" }}> Aroha Group</span>
             </h1>
             </Col>
