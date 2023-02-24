@@ -7,6 +7,7 @@ Form{
    
     border-radius: 1em;
     padding: 3em;
+    padding-top: 1em;
     padding-bottom: 5em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -47,7 +48,15 @@ Form{
   .feedback{
 margin-right: 90%;
   }
+.connectMsgStyle{
 
+  font-size: 27px;
+  float: left;
+  font-style: italic;
+  margin-bottom: 7%;
+  text-decoration: underline;
+  font-weight: 500;
+}
 @media only screen and (max-width: 600px) {
     .exportBtnStyle{
         margin-bottom: 5%;

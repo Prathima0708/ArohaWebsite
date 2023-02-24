@@ -9,10 +9,10 @@ import logo from "../../assets/ag.png";
 function Header() {
   return (
     <>
-      <Navbar expand="lg" className={classes.nav}>
+      {/* <Navbar expand="lg" className={classes.nav}>
         <Container>
           <Navbar.Brand href="/">
-            <img src={logo} width="100" height="50" alt=" logo" />
+            <img src={logo} width="100" alt=" logo" />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -28,7 +28,7 @@ function Header() {
                 Services
               </Nav.Link>
               <Nav.Link
-                href="/about"
+                href="https://arohagroup.com/about/"
                 target="_blank"
                 className={classes.linkText}
               >
@@ -37,7 +37,41 @@ function Header() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar> */}
+      <div className={classes.outer}>
+        <Container>
+          <Navbar bg="light" expand="lg" className={classes.nav}>
+            <Container>
+              <Navbar.Brand href="/">
+                <img src={logo} width="100" alt=" logo" />
+              </Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                  <Nav.Link href="/" className={classes.linkText}>
+                    Home
+                  </Nav.Link>
+                  <Nav.Link
+                    href="/services"
+                    target="_blank"
+                    className={classes.linkText}
+                  >
+                    Services
+                  </Nav.Link>
+                  <Nav.Link
+                    href="https://arohagroup.com/about/"
+                    target="_blank"
+                    className={classes.linkText}
+                  >
+                    About us
+                  </Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
+        </Container>
+        <div className={classes.inner}></div>
+      </div>
 
       {/* <Container>
         <Row className={classes.heading}>

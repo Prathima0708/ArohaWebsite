@@ -12,19 +12,18 @@ function Dashboard() {
     <>
       <div>
         <Header />
-        <Container className="mt-5">
+        <Container >
+          <Row className={classes.row}>
+            <h1 className={classes.heading}>
+              360<sup>o</sup> Digital Marketing Solution <br /> by
+              <span style={{ color: "#E67E22" }}> Aroha Group</span>
+            </h1>
+          </Row>
           <Row>
             <Col>
-              <Col>
-                <h1 className={classes.heading}>
-                  360<sup>o</sup> Digital Marketing Solution by
-                  <span style={{ color: "#E67E22" }}> Aroha Group</span>
-                </h1>
-              </Col>
-              <Col>
-                <ConnectForm />
-              </Col>
+              <ConnectForm />
             </Col>
+
             <Col xs={5} className={classes.imageStyle}>
               <img
                 src={connectUsImage}

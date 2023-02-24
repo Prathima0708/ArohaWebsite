@@ -118,13 +118,13 @@ export const ConnectForm = () => {
   return (
     <>
       <Container>
-        <div>
+        {/* <div>
           <h1>
             <Badge bg="#F39C12" className={classes.badge}>
               Lets Connect
             </Badge>
           </h1>
-        </div>
+        </div> */}
         <Container>
           <Form
             noValidate
@@ -132,6 +132,10 @@ export const ConnectForm = () => {
             className={classes.Form}
             onSubmit={submitFormHandler}
           >
+            <Row>
+              <h1 className={classes.connectMsgStyle}>Lets Connect</h1>
+            </Row>
+
             <Row className="mb-4">
               <Form.Group as={Col} md="6" controlId="validationCustom01">
                 <Form.Label className={classes.label}>First Name</Form.Label>
@@ -202,7 +206,7 @@ export const ConnectForm = () => {
                   Please provide location.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="6" controlId="validationCustom01">
+              {/* <Form.Group as={Col} md="6" controlId="validationCustom01">
                 <Form.Label className={classes.label}>Pin Code</Form.Label>
                 <Form.Control
                   required
@@ -215,10 +219,19 @@ export const ConnectForm = () => {
                 <Form.Control.Feedback type="invalid">
                   Please enter pincode.
                 </Form.Control.Feedback>
+              </Form.Group> */}
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label className={classes.label}>Company Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Company name"
+                  value={enteredCompanyName}
+                  onChange={companyNameChangeHandler}
+                />
               </Form.Group>
             </Row>
 
-            <Row className="mb-3">
+            {/* <Row className="mb-3">
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
@@ -231,7 +244,7 @@ export const ConnectForm = () => {
                   onChange={companyNameChangeHandler}
                 />
               </Form.Group>
-            </Row>
+            </Row> */}
             <Row className="mb-3">
               <Form.Group
                 className="mb-3"
